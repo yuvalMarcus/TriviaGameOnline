@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Words Game</title>
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <link href="https://fonts.googleapis.com/css?family=Asap:400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="background-grey">
+</div>
+
+<div class="panel-game">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2>Words Game</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 choose-level">
+                <span>Choose Level :</span>
+            </div>
+            <div class="col-sm-4">
+                <select class="form-control game-levels">
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <button class="btn btn-dark start-game">Start Game</button>
+                <button class="btn btn-dark change-level">Change Level</button>
+            </div>
+        </div>
+        <div class="game-active-data">
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <strong>Level :</strong>&nbsp;<span class="game-level">0</span>
+                </div>
+                <div class="col-sm-4">
+                    <strong>Letters to guess :</strong>&nbsp;<span class="letters-to-guess-in-the-word">1</span>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-dark new-word">New Word</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 clock">
+                    <span>00</span>:<span>00</span>:<span class="seconds">00</span>
+                </div>
+                <div class="col-sm-4">
+                    <strong>Words guess :</strong>&nbsp;<span class="amount-active-words-found">0</span>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-dark stop-game">Stop Game</button>
+                </div>
+            </div>
+        </div>
+        <div class="game-finished-data">
+            <div class="row">
+                <div class="col-sm-12">
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 finished-time">
+                </div>
+                <div class="col-sm-6">
+                    <strong>Words guess :</strong>&nbsp;<span class="amount-finished-words-found">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="game-notification">
+    <div class="content success">
+    </div>
+</div>
+
+<div class="game-word-category">
+    <div class="icon-tip"><i class="fa fa-info" aria-hidden="true"></i></div>
+    <div class="content">
+        <span>Category : </span><span class="word-category"></span>
+    </div>
+</div>
+
+<div class="game-board">
+    <span>Game Waiting</span>
+</div>
+
+<div class="game-control">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>Guess the word</h4>
+                <div class="input-group mb-3">
+                    <input type="text" id="input-word-value" class="form-control" placeholder="Word">
+                    <div class="input-group-append">
+                        <button class="btn btn-info guess-word" type="button">Guess</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <hr />
+            </div>
+            <div class="col-sm-12">
+                <h4>Select a letter</h4>
+                <div class="keyboard">
+                    <div class="key letter" data-letter="q">
+                        Q
+                    </div>
+                    <div class="key letter" data-letter="w">
+                        W
+                    </div>
+                    <div class="key letter" data-letter="e">
+                        E
+                    </div>
+                    <div class="key letter" data-letter="r">
+                        R
+                    </div>
+                    <div class="key letter" data-letter="t">
+                        T
+                    </div>
+                    <div class="key letter" data-letter="y">
+                        Y
+                    </div>
+                    <div class="key letter" data-letter="u">
+                        U
+                    </div>
+                    <div class="key letter" data-letter="i">
+                        I
+                    </div>
+                    <div class="key letter" data-letter="o">
+                        O
+                    </div>
+                    <div class="key letter" data-letter="p">
+                        P
+                    </div>
+                    <div class="key letter" data-letter="a">
+                        A
+                    </div>
+                    <div class="key letter" data-letter="s">
+                        S
+                    </div>
+                    <div class="key letter" data-letter="d">
+                        D
+                    </div>
+                    <div class="key letter" data-letter="f">
+                        F
+                    </div>
+                    <div class="key letter" data-letter="g">
+                        G
+                    </div>
+                    <div class="key letter" data-letter="h">
+                        H
+                    </div>
+                    <div class="key letter" data-letter="j">
+                        J
+                    </div>
+                    <div class="key letter" data-letter="k">
+                        K
+                    </div>
+                    <div class="key letter" data-letter="l">
+                        L
+                    </div>
+                    <div class="key letter" data-letter="z">
+                        Z
+                    </div>
+                    <div class="key letter" data-letter="x">
+                        X
+                    </div>
+                    <div class="key letter" data-letter="c">
+                        C
+                    </div>
+                    <div class="key letter" data-letter="v">
+                        V
+                    </div>
+                    <div class="key letter" data-letter="b">
+                        B
+                    </div>
+                    <div class="key letter" data-letter="n">
+                        N
+                    </div>
+                    <div class="key letter" data-letter="m">
+                        M
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
